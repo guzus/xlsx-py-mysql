@@ -7,7 +7,7 @@ import sys
 
 def load_worksheet():
     wb = openpyxl.load_workbook(settings.XLSX_FILE_PATH, read_only=True, data_only=True)
-    logging.info(f"Found {wb.sheetnames}")
+    logging.info(f"Found {wb.sheetnames} from [{settings.XLSX_FILE_PATH}]")
 
     ws = wb[settings.XLSX_FILE_SHEET]
     logging.info(f"Found {ws}")

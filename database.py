@@ -13,7 +13,7 @@ class Database:
                 db=settings.DB,
                 charset="utf8",
             )
-            logging.info("Connecting to MySQL succeeded")
+            logging.info(f"Connecting to MySQL Database [{settings.DB}] succeeded")
         except Exception as e:
             logging.error(e)
             logging.error("Connecting to MySQL failed")
@@ -22,7 +22,7 @@ class Database:
         try:
             params = list(column.keys())
             columns = list(column.values())
-            logging.info(f"column: {column}")
+            logging.info(f"Column: {column}")
 
             cursor = self.db.cursor()
             cursor.execute(
@@ -32,7 +32,7 @@ class Database:
                 """
             )
             self.db.commit()
-            logging.info("Insert succeeded")
+            logging.info(f"Insert row to table [{settings.TARGET_DB_TABLE}] succeeded")
         except Exception as e:
             logging.error(e)
             logging.error("Insert failed")
